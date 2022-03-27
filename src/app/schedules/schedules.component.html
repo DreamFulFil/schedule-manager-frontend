@@ -1,0 +1,24 @@
+<div>
+  <button type="button">Add Task</button>
+</div>
+<div>
+  <table aria-label="Scheduled Tasks">
+    <tbody>
+      <tr>
+        <th>No.</th>
+        <th>Cron Expression</th>
+        <th>Enabled</th>
+        <th>Task Parameters</th>
+        <th colspan="2">Actions</th>
+      </tr>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.no }}</td>
+        <td>{{ task.cronExpression }}</td>
+        <td>{{ task.enabled }}</td>
+        <td>{{ task.taskParamters }}</td>
+        <td><button type="button">Update</button></td>
+        <td><button type="button">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
