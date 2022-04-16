@@ -1,0 +1,39 @@
+<div class="table-button-container">
+    <button
+        mat-raised-button
+        (click)="addTask()"
+        class="table-button">
+      Add data
+    </button>
+  </div>
+<div>
+    <table
+        aria-label="Scheduled Tasks"
+        mat-table
+        [dataSource]="tasks"
+        class="mat-elevation-z8"
+    >
+        <ng-container matColumnDef="no">
+            <th mat-header-cell *matHeaderCellDef>順序</th>
+            <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="expr">
+            <th mat-header-cell *matHeaderCellDef>排程表示式</th>
+            <td mat-cell *matCellDef="let element"> {{ element.cronExpression }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="enabled">
+            <th mat-header-cell *matHeaderCellDef>啟用</th>
+            <td mat-cell *matCellDef="let element"> {{ !element.cancelled }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="params">
+            <th mat-header-cell *matHeaderCellDef>參數</th>
+            <td mat-cell *matCellDef="let element"> {{ element.taskParameters }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

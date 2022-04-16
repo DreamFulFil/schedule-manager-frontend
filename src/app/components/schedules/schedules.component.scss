@@ -1,0 +1,43 @@
+.table-button-container {
+    padding-bottom: 16px;
+}
+
+.table-button + .table-button {
+    margin-left: 8px;
+}
+
+table {
+    width: 100%;
+}
+
+@mixin mat-table-columns($columns) {
+    .mat-column- {
+        @each $colName, $props in $columns {
+            $width: map-get($props, "width");
+
+            &#{$colName} {
+                flex: $width;
+                min-width: $width;
+
+                @if map-has-key($props, "color") {
+                    color: map-get($props, "color");
+                }
+            }
+        }
+    }
+}
+
+@include mat-table-columns(
+    (
+        no: (
+            width: 5rem,
+            color: gray,
+        ),
+        expr: (
+            width: 10rem,
+        ),
+        enabled: (
+            width: 5rem,
+        )
+    )
+);
