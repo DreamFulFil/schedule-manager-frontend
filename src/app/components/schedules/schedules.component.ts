@@ -12,7 +12,7 @@ import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 export class SchedulesComponent implements OnInit {
 
     tasks: Schedule[] = [];
-    displayedColumns: string[] = ['no', 'expr', 'enabled', 'params'];
+    displayedColumns: string[] = ['actions', 'no', 'expr', 'enabled', 'params'];
 
     constructor(
         private http: HttpClient,
@@ -24,9 +24,10 @@ export class SchedulesComponent implements OnInit {
     }
 
     loadTasks() : void {
-        this.http.get<Schedule[]>('http://localhost:20000/task/george_chou')
-                 .subscribe(response => {
-            this.tasks = response;
+        this.http
+            .get<Schedule[]>('http://localhost:20000/task/george_chou')
+            .subscribe(response => {
+                this.tasks = response;
         });
     }
 

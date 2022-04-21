@@ -6,6 +6,10 @@
     margin-left: 8px;
 }
 
+.cell-button {
+    margin-left: 8px;
+}
+
 table {
     width: 100%;
 }
@@ -18,6 +22,7 @@ table {
             &#{$colName} {
                 flex: $width;
                 min-width: $width;
+                text-align: center;
 
                 @if map-has-key($props, "color") {
                     color: map-get($props, "color");
@@ -29,15 +34,21 @@ table {
 
 @include mat-table-columns(
     (
+        actions: (
+            width: 5rem,
+        ),
         no: (
             width: 5rem,
             color: gray,
         ),
         expr: (
-            width: 10rem,
+            width: 5rem,
         ),
         enabled: (
             width: 5rem,
+        ),
+        params: (
+            width: 30rem
         )
     )
 );
