@@ -20,13 +20,11 @@ table {
             $width: map-get($props, "width");
 
             &#{$colName} {
-                flex: $width;
-                min-width: $width;
+                flex: 0 0 $width;
+                width: $width;
                 text-align: center;
-
-                @if map-has-key($props, "color") {
-                    color: map-get($props, "color");
-                }
+                word-wrap: break-word;
+                word-break: break-word;
             }
         }
     }
@@ -34,21 +32,10 @@ table {
 
 @include mat-table-columns(
     (
-        actions: (
-            width: 5rem,
-        ),
-        no: (
-            width: 5rem,
-            color: gray,
-        ),
-        expr: (
-            width: 5rem,
-        ),
-        enabled: (
-            width: 5rem,
-        ),
-        params: (
-            width: 30rem
-        )
+        actions: (width: 15%),
+        no:      (width: 5%),
+        expr:    (width: 15%),
+        enabled: (width: 5%),
+        params:  (width: 65%)
     )
 );

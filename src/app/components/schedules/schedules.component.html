@@ -41,7 +41,7 @@
             <th mat-header-cell *matHeaderCellDef>參數</th>
             <td mat-cell *matCellDef="let element">
                 <!-- 這裡不 substring 欄位會被撐大，需再研究 flex layout -->
-                {{ element.taskParameters.substring(0,70) }}
+                {{ element.taskParameters }}
             </td>
         </ng-container>
 
